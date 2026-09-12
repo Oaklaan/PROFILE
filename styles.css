@@ -17,7 +17,7 @@
     rgba(13, 71, 161, 0.72) 100%
   );
   /* File: place Screenshot 2026-01-07 145747.png in this project folder (next to styles.css) */
-  --hero-bg-image: url("./Screenshot%202026-01-07%20145747.png");
+  --hero-bg-image: url("./utils/Screenshot%202026-01-07%20145747.png");
 }
 
 /* Box model: global box-sizing for predictable width calculations */
