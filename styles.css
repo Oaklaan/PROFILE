@@ -1,0 +1,195 @@
+/* ------------------------------------------------------------------
+   Personal portfolio — custom CSS (box model, typography, layout)
+   Works alongside Bootstrap 5 utility classes.
+   ------------------------------------------------------------------ */
+
+:root {
+  --brand-primary: #0d6efd;
+  --brand-dark: #0b1220;
+  --brand-accent: #6ea8fe;
+  --panel-bg: #f8f9fa;
+  --panel-border: #dee2e6;
+  /* Hero: photo + tint so white text stays readable */
+  --hero-overlay: linear-gradient(
+    135deg,
+    rgba(11, 18, 32, 0.88) 0%,
+    rgba(26, 42, 74, 0.78) 45%,
+    rgba(13, 71, 161, 0.72) 100%
+  );
+  /* File: place Screenshot 2026-01-07 145747.png in this project folder (next to styles.css) */
+  --hero-bg-image: url("./Screenshot%202026-01-07%20145747.png");
+}
+
+/* Box model: global box-sizing for predictable width calculations */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: 4.5rem;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #212529;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Header: spacing below fixed navbar */
+.site-header {
+  height: 0;
+}
+
+/* Hero: full-width section with explicit padding (box model) */
+.hero {
+  display: flex;
+  align-items: center;
+  background-color: var(--brand-dark);
+  background-image: var(--hero-overlay), var(--hero-bg-image);
+  background-size: cover;
+  /* Show the right side of the screenshot (cover crops the other edge) */
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 56px; /* offset fixed navbar approximate height */
+  min-height: calc(100vh - 56px);
+}
+
+.hero-lead {
+  max-width: 36rem;
+}
+
+.hero .display-4 {
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+}
+
+@media (min-width: 992px) {
+  .hero {
+    margin-top: 58px;
+    min-height: calc(100vh - 58px);
+  }
+}
+
+.letter-space {
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+}
+
+/* Figure in hero: border + padding as box model demo */
+.hero-figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  margin: 0;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  max-width: 100%;
+  flex-shrink: 0;
+}
+
+.hero-figure img {
+  display: block;
+}
+
+/* Local portrait: crop to circle; anchor to right so the right side of the photo stays visible */
+.hero-figure img.hero-portrait {
+  width: min(100vw - 3rem, 280px);
+  height: min(100vw - 3rem, 280px);
+  max-width: 280px;
+  max-height: 280px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: right center;
+}
+
+/* Section titles: margin + border-bottom (box model) */
+.section-title {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 3px solid var(--brand-primary);
+  display: inline-block;
+}
+
+.section-surface {
+  background-color: var(--panel-bg);
+}
+
+/* Content panels: explicit width, padding, border, margin — classic box model */
+.content-panel {
+  width: 100%;
+  padding: 1.5rem 1.75rem;
+  margin: 0;
+  border: 1px solid var(--panel-border);
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(11, 18, 32, 0.06);
+}
+
+.content-panel h3 {
+  margin-top: 0;
+}
+
+/* Skill cards: layered box model on top of Bootstrap .card */
+.skill-card {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid var(--panel-border) !important;
+}
+
+.skill-card .card-body {
+  padding: 1.5rem 1.5rem 1.25rem;
+}
+
+/* Project cards: margin via Bootstrap g-*, custom border-radius & transition */
+.project-card {
+  border-radius: 0.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(11, 18, 32, 0.12) !important;
+}
+
+.project-card .card-img-top {
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Contact form: padding and max-width for readable line length */
+.contact-form {
+  width: 100%;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem 1.75rem;
+  border: 2px solid var(--panel-border);
+  border-radius: 0.75rem;
+  background-color: #fff;
+  box-shadow: 0 4px 16px rgba(11, 18, 32, 0.06);
+}
+
+/* Progress bars: slight height for visibility */
+.progress {
+  height: 0.65rem;
+  border-radius: 0.35rem;
+}
+
+/* Navbar link hover */
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: var(--brand-accent);
+}

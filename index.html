@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Krushna Koshatwar — Portfolio</title>
+  <meta name="description" content="Personal portfolio of Krushna Koshatwar — web developer and designer.">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm" aria-label="Main navigation">
+      <div class="container">
+        <a class="navbar-brand fw-semibold" href="#home">KK</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"
+          aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMain">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="home">
+    <!-- Hero -->
+    <section class="hero text-white" aria-labelledby="hero-heading">
+      <div class="container py-4 py-lg-5">
+        <div class="row align-items-center justify-content-center g-4 g-lg-5">
+          <div class="col-lg-7 text-center text-lg-start">
+            <p class="text-uppercase letter-space mb-2 opacity-75">Hello, I am</p>
+            <h1 id="hero-heading" class="display-4 fw-bold mb-3">Krushna Koshatwar</h1>
+            <p class="lead hero-lead mb-4 mx-auto mx-lg-0">I design and build responsive, accessible web experiences. Welcome to my portfolio.</p>
+            <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-lg-start">
+              <a class="btn btn-primary btn-lg px-4" href="#projects">View work</a>
+              <a class="btn btn-outline-light btn-lg px-4" href="#contact">Get in touch</a>
+            </div>
+          </div>
+          <div class="col-lg-5 d-flex justify-content-center align-items-center">
+            <figure class="hero-figure mb-0">
+              <img src="IMG_E0315.JPG"
+                class="img-fluid rounded-circle border border-4 border-light shadow hero-portrait" width="280" height="280"
+                alt="Krushna Koshatwar">
+              <figcaption class="visually-hidden">Krushna Koshatwar — portrait</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-5 section-surface" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center mb-4">
+            <h2 id="about-heading" class="section-title">About me</h2>
+            <p class="text-muted">A short introduction using semantic HTML and structured content.</p>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <article class="content-panel h-100">
+              <h3 class="h5 mb-3">Background</h3>
+              <p>I’m a passionate <strong>Backend & Full Stack Developer </strong>focused on building <strong>scalable, real-time applications</strong> and solving real-world problems through technology.</p>
+            </article>
+          </div>
+          <div class="col-md-6">
+            <article class="content-panel h-100">
+              <h3 class="h5 mb-3">Goals</h3>
+              <p>I enjoy turning ideas into fast, usable interfaces. I collaborate with teams, write thoughtful code,
+                and keep learning new tools and standards.</p>
+              <ul class="list-unstyled mb-0 mt-3">
+                <li class="mb-2"><span class="badge bg-primary me-2">HTML5</span> Semantic structure</li>
+                <li class="mb-2"><span class="badge bg-secondary me-2">CSS3</span> Layout &amp; theming</li>
+                <li><span class="badge bg-info text-dark me-2">JavaScript</span> Event driven &amp; UI</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills — Bootstrap progress + alerts as components -->
+    <section id="skills" class="py-5" aria-labelledby="skills-heading">
+      <div class="container">
+        <h2 id="skills-heading" class="section-title text-center mb-2">Skills</h2>
+        <p class="text-center text-muted mb-5">Proficiency indicators using Bootstrap progress bars.</p>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="card skill-card h-100 shadow-sm">
+              <div class="card-body">
+                <h3 class="card-title h5">Front-end</h3>
+                <p class="card-text small text-muted mb-3">HTML, CSS, JavaScript</p>
+                <p class="small text-muted mb-1 mb-0">HTML / semantics</p>
+                <div class="progress mb-3" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+                  aria-label="HTML and semantics skill level">
+                  <div class="progress-bar bg-success" style="width: 90%">90%</div>
+                </div>
+                <p class="small text-muted mb-1 mb-0">CSS / layout</p>
+                <div class="progress mb-0" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
+                  aria-label="CSS and layout skill level">
+                  <div class="progress-bar" style="width: 85%">85%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="card skill-card h-100 shadow-sm">
+              <div class="card-body">
+                <h3 class="card-title h5">Frameworks</h3>
+                <p class="card-text small text-muted mb-3">Bootstrap, React basics</p>
+                <p class="small text-muted mb-1 mb-0">Bootstrap</p>
+                <div class="progress mb-3" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
+                  aria-label="Bootstrap skill level">
+                  <div class="progress-bar bg-info text-dark" style="width: 80%">80%</div>
+                </div>
+                <div class="alert alert-light border small mb-0 py-2" role="status">
+                  Responsive grids &amp; utilities speed up layout work.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <div class="card skill-card h-100 shadow-sm">
+              <div class="card-body">
+                <h3 class="card-title h5">Tools</h3>
+                <p class="card-text small text-muted mb-3">Git, Figma, VS Code</p>
+                <div class="accordion accordion-flush" id="skillAccordion">
+                  <div class="accordion-item">
+                    <h4 class="accordion-header">
+                      <button class="accordion-button collapsed py-2" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#accOne" aria-expanded="false" aria-controls="accOne">Workflow</button>
+                    </h4>
+                    <div id="accOne" class="accordion-collapse collapse" data-bs-parent="#skillAccordion">
+                      <div class="accordion-body small py-2">Version control, code review, and component-based UI.</div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h4 class="accordion-header">
+                      <button class="accordion-button collapsed py-2" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#accTwo" aria-expanded="false" aria-controls="accTwo">Design handoff</button>
+                    </h4>
+                    <div id="accTwo" class="accordion-collapse collapse" data-bs-parent="#skillAccordion">
+                      <div class="accordion-body small py-2">Specs, spacing tokens, and accessible color contrast.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects — Bootstrap cards & modal -->
+    <section id="projects" class="py-5 section-surface" aria-labelledby="projects-heading">
+      <div class="container">
+        <h2 id="projects-heading" class="section-title text-center mb-2">Featured projects</h2>
+        <p class="text-center text-muted mb-5">Card layout with responsive columns.</p>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+          <div class="col">
+            <article class="card project-card h-100 shadow border-0">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=340&fit=crop"
+                class="card-img-top" alt="Laptop on desk representing analytics dashboard project">
+              <div class="card-body d-flex flex-column">
+                <h3 class="card-title h5">Analytics dashboard</h3>
+                <p class="card-text text-muted small flex-grow-1">Charts, filters, and export using a component library.</p>
+                <button type="button" class="btn btn-outline-primary btn-sm align-self-start" data-bs-toggle="modal"
+                  data-bs-target="#modalProject1">Details</button>
+              </div>
+            </article>
+          </div>
+          <div class="col">
+            <article class="card project-card h-100 shadow border-0">
+              <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=340&fit=crop"
+                class="card-img-top" alt="Mobile app mockup on phone">
+              <div class="card-body d-flex flex-column">
+                <h3 class="card-title h5">Mobile-first storefront</h3>
+                <p class="card-text text-muted small flex-grow-1">Product grid, cart drawer, and checkout flow.</p>
+                <button type="button" class="btn btn-outline-primary btn-sm align-self-start" data-bs-toggle="modal"
+                  data-bs-target="#modalProject2">Details</button>
+              </div>
+            </article>
+          </div>
+          <div class="col">
+            <article class="card project-card h-100 shadow border-0">
+              <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=340&fit=crop"
+                class="card-img-top" alt="Code on screen representing API project">
+              <div class="card-body d-flex flex-column">
+                <h3 class="card-title h5">REST API toolkit</h3>
+                <p class="card-text text-muted small flex-grow-1">Documentation site and interactive console for developers.</p>
+                <button type="button" class="btn btn-outline-primary btn-sm align-self-start" data-bs-toggle="modal"
+                  data-bs-target="#modalProject3">Details</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modals -->
+    <div class="modal fade" id="modalProject1" tabindex="-1" aria-labelledby="modalProject1Label" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title h5" id="modalProject1Label">Analytics dashboard</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p class="mb-0">Role: UI engineering. Stack: HTML, CSS, JavaScript, charting library. Focus on accessibility and keyboard navigation.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modalProject2" tabindex="-1" aria-labelledby="modalProject2Label" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title h5" id="modalProject2Label">Mobile-first storefront</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p class="mb-0">Role: Front-end. Implemented responsive product grid with Bootstrap and custom CSS for brand styling.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modalProject3" tabindex="-1" aria-labelledby="modalProject3Label" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title h5" id="modalProject3Label">REST API toolkit</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p class="mb-0">Role: Full-stack. Built docs theme, try-it-out panel, and example responses for onboarding.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact — Bootstrap form -->
+    <section id="contact" class="py-5" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <h2 id="contact-heading" class="section-title text-center mb-2">Contact</h2>
+            <p class="text-center text-muted mb-4">Send a message (demo form — does not submit to a server).</p>
+            <form class="contact-form needs-validation" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="contactName" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="contactName" required placeholder="Your name">
+                  <div class="invalid-feedback">Please enter your name.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="contactEmail" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="contactEmail" required placeholder="you@example.com">
+                  <div class="invalid-feedback">Please enter a valid email.</div>
+                </div>
+                <div class="col-12">
+                  <label for="contactMessage" class="form-label">Message</label>
+                  <textarea class="form-control" id="contactMessage" rows="4" required placeholder="Your message"></textarea>
+                  <div class="invalid-feedback">Please enter a message.</div>
+                </div>
+                <div class="col-12 text-center">
+                  <button type="submit" class="btn btn-primary px-5">Send</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-dark text-white-50 py-4 mt-auto">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+          <p class="mb-0 small">&copy; <span id="year"></span> Krushna Koshatwar. Built for coursework demo.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <a href="https://github.com/Oaklaan" class="text-white-50 text-decoration-none me-3"><strong>GitHub</strong></a>
+          <a href="https://www.linkedin.com/in/krushna-koshatwar-65966b284/" class="text-white-50 text-decoration-none me-3"><strong>LinkedIn</strong></a>
+          <a href="https://mail.google.com/mail/u/1/?view=cm&fs=1&to=krushnakoshatwar619@gmail.com&tf=1" class="text-white-50 text-decoration-none"><strong>Email</strong></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function () {
+      'use strict';
+      var forms = document.querySelectorAll('.needs-validation');
+      Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          } else {
+            event.preventDefault();
+            alert('Thanks! KK will get back to you');
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    })();
+  </script>
+</body>
+</html>
