@@ -285,10 +285,9 @@ footer { padding-block-start: 2.5rem; color: var(--muted); font-size: 0.9rem; fo
     </div>
 
     <section id="stack">
-      <div class="sh"><h2>Tech stack</h2><p>Tools I have built with. Pick a group to filter.</p></div>
-      <div class="filters" role="group" aria-label="Filter tech stack">
-        <button class="f" type="button" data-f="all" aria-pressed="true">All</button>
-        <button class="f" type="button" data-f="frontend" aria-pressed="false">Frontend</button>
+      <div class="sh"><h2>Tech stack</h2><p>Tools I have built with. Press a group to open it.</p></div>
+      <div class="filters" role="group" aria-label="Choose a tech stack group">
+        <button class="f" type="button" data-f="frontend" aria-pressed="true">Frontend</button>
         <button class="f" type="button" data-f="backend" aria-pressed="false">Backend</button>
         <button class="f" type="button" data-f="data" aria-pressed="false">Databases</button>
         <button class="f" type="button" data-f="cloud" aria-pressed="false">Cloud and DevOps</button>
@@ -539,16 +538,17 @@ footer { padding-block-start: 2.5rem; color: var(--muted); font-size: 0.9rem; fo
   });
   label();
 
-  /* tech stack filter */
+  /* tech stack: one group open at a time, Frontend by default */
   var fbtns = document.querySelectorAll(".f");
   var tiles = document.querySelectorAll("#tiles .tile");
-  for (var a = 0; a < fbtns.length; a++) {
-    fbtns[a].addEventListener("click", function () {
-      var f = this.getAttribute("data-f");
-      for (var b = 0; b < fbtns.length; b++) fbtns[b].setAttribute("aria-pressed", fbtns[b] === this ? "true" : "false");
-      for (var c = 0; c < tiles.length; c++) tiles[c].hidden = !(f === "all" || tiles[c].getAttribute("data-c") === f);
-    });
+  function openGroup(f) {
+    for (var b = 0; b < fbtns.length; b++) fbtns[b].setAttribute("aria-pressed", fbtns[b].getAttribute("data-f") === f ? "true" : "false");
+    for (var c = 0; c < tiles.length; c++) tiles[c].hidden = tiles[c].getAttribute("data-c") !== f;
   }
+  for (var a = 0; a < fbtns.length; a++) {
+    fbtns[a].addEventListener("click", function () { openGroup(this.getAttribute("data-f")); });
+  }
+  openGroup("frontend");
 
   /* scroll progress */
   var bar = document.getElementById("progress");
