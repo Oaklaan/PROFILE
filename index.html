@@ -1,338 +1,684 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Krushna Koshatwar — Portfolio</title>
-  <meta name="description" content="Personal portfolio of Krushna Koshatwar — web developer and designer.">
-  <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header class="site-header">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm" aria-label="Main navigation">
-      <div class="container">
-        <a class="navbar-brand fw-semibold" href="#home">KK</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"
-          aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navMain">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </div>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Krushna Koshatwar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap">
+<style>
+/* Layout: chunky, sticker-style page on a dot grid. Square corners, hard offset shadows, flat bright fills.
+   One long column; the tech tiles and the bug game are the playful parts. */
+:root {
+  --bg: #e8eeff;
+  --dot: #c3cdf3;
+  --paper: #ffffff;
+  --paper-hover: #fff6c9;
+  --ink: #0c0d1a;
+  --muted: #4a4d66;
+  --border: #0c0d1a;
+  --shadow: #0c0d1a;
+  --link: #2b46e0;
+  --mound: #b9c6f5;
+  --pop1: #ffd23f;
+  --pop2: #ff5fa2;
+  --pop3: #3d5bff;
+  --pop4: #19c37d;
+  --on-pop: #0c0d1a;
+  --on-pop3: #ffffff;
+
+  --font-display: "Unbounded", "Arial Black", Arial, sans-serif;
+  --font-body: "Figtree", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e0f21; --dot: #1f2145; --paper: #191a33; --paper-hover: #26274d;
+    --ink: #f3f3ff; --muted: #a3a6c8; --border: #9aa2ff; --shadow: #4b53c4;
+    --link: #a9b7ff; --mound: #2b2d57;
+    --pop1: #ffd23f; --pop2: #ff6fae; --pop3: #7c92ff; --pop4: #2fd69a;
+    --on-pop: #0c0d1a; --on-pop3: #0c0d1a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e0f21; --dot: #1f2145; --paper: #191a33; --paper-hover: #26274d;
+  --ink: #f3f3ff; --muted: #a3a6c8; --border: #9aa2ff; --shadow: #4b53c4;
+  --link: #a9b7ff; --mound: #2b2d57;
+  --pop1: #ffd23f; --pop2: #ff6fae; --pop3: #7c92ff; --pop4: #2fd69a;
+  --on-pop: #0c0d1a; --on-pop3: #0c0d1a;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background-color: var(--bg);
+  background-image: radial-gradient(var(--dot) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  padding-inline: 1rem;
+  padding-block: 0 4rem;
+}
+.wrap { max-width: 70rem; margin-inline: auto; }
+a { color: var(--link); text-underline-offset: 0.2em; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--pop2); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.1; }
+p { margin: 0; }
+ul { margin: 0; }
+
+.progress { position: fixed; top: env(safe-area-inset-top, 0px); left: 0; height: 5px; width: 100%; background: var(--pop2); transform: scaleX(0); transform-origin: left; z-index: 20; }
+
+/* top bar */
+.bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem 1.5rem; padding-block: 1.25rem; }
+.mark { display: inline-grid; place-items: center; width: 2.6rem; height: 2.6rem; background: var(--pop1); color: var(--on-pop); border: 3px solid var(--border); box-shadow: 3px 3px 0 var(--shadow); font-family: var(--font-display); font-weight: 900; font-size: 0.95rem; text-decoration: none; transition: transform 0.15s; }
+.mark:hover { transform: rotate(-8deg) scale(1.08); }
+.bar nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem; }
+.bar nav a { color: var(--ink); text-decoration: none; font-weight: 600; padding: 0.3rem 0.7rem; border: 2px solid transparent; transition: background 0.12s, border-color 0.12s, transform 0.12s; }
+.bar nav a:hover { background: var(--pop1); color: var(--on-pop); border-color: var(--border); transform: translateY(-2px); }
+.theme { font: inherit; font-weight: 600; font-size: 0.9rem; color: var(--ink); background: var(--paper); border: 2px solid var(--border); padding: 0.3rem 0.8rem; cursor: pointer; margin-inline-start: 0.5rem; transition: background 0.12s; }
+.theme:hover { background: var(--paper-hover); }
+
+/* buttons */
+.btn { display: inline-block; font: inherit; font-weight: 700; padding: 0.75rem 1.25rem; background: var(--pop1); color: var(--on-pop); border: 3px solid var(--border); box-shadow: 5px 5px 0 var(--shadow); text-decoration: none; cursor: pointer; transition: transform 0.12s, box-shadow 0.12s; }
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--shadow); }
+.btn:active { transform: translate(4px, 4px); box-shadow: 1px 1px 0 var(--shadow); }
+.btn.alt { background: var(--paper); color: var(--ink); }
+.btn.blue { background: var(--pop3); color: var(--on-pop3); }
+
+/* hero */
+.hero { position: relative; padding-block: clamp(2rem, 6vw, 4.5rem) 3.5rem; }
+.pill { display: inline-block; font-family: var(--font-mono); font-size: 0.85rem; font-weight: 600; background: var(--paper); border: 2px solid var(--border); padding: 0.25rem 0.8rem; margin-block-end: 1.5rem; }
+.hero h1 { font-size: clamp(2.4rem, 9.2vw, 7rem); font-weight: 900; letter-spacing: -0.04em; line-height: 1; }
+.hero h1 .w { display: block; overflow-wrap: anywhere; }
+.l { display: inline-block; transition: transform 0.15s, color 0.15s; cursor: default; }
+.l:hover { transform: translateY(-0.1em) rotate(-6deg); }
+.l:nth-child(3n+1):hover { color: var(--pop2); }
+.l:nth-child(3n+2):hover { color: var(--pop3); }
+.l:nth-child(3n):hover { color: var(--pop4); }
+.lede { max-width: 36rem; margin-block-start: 1.75rem; font-size: clamp(1.15rem, 2.2vw, 1.4rem); line-height: 1.5; }
+.cta { display: flex; flex-wrap: wrap; gap: 1rem; margin-block-start: 2rem; }
+.sticker { display: grid; place-items: center; text-align: center; width: 7.5rem; height: 7.5rem; border-radius: 50%; background: var(--pop2); color: var(--on-pop); border: 3px solid var(--border); box-shadow: 5px 5px 0 var(--shadow); font-family: var(--font-display); font-weight: 700; font-size: 0.8rem; line-height: 1.25; text-decoration: none; transform: rotate(10deg); transition: transform 0.2s; margin-block-start: 2rem; }
+.sticker:hover { transform: rotate(-6deg) scale(1.1); }
+@media (min-width: 64rem) { .sticker { position: absolute; right: 1rem; top: 5rem; margin: 0; width: 9rem; height: 9rem; font-size: 0.95rem; } }
+
+/* stats */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: 1.25rem; padding-block: 0 4rem; }
+.stat { padding: 1.25rem; border: 3px solid var(--border); box-shadow: 5px 5px 0 var(--shadow); color: var(--on-pop); transition: transform 0.15s, box-shadow 0.15s; }
+.stat:nth-child(1) { background: var(--pop1); }
+.stat:nth-child(2) { background: var(--pop2); }
+.stat:nth-child(3) { background: var(--pop4); }
+.stat:nth-child(4) { background: var(--pop3); color: var(--on-pop3); }
+.stat:hover { transform: translateY(-5px) rotate(-1.5deg); box-shadow: 8px 10px 0 var(--shadow); }
+.stat b { display: block; font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 3rem); font-weight: 900; line-height: 1; margin-block-end: 0.5rem; }
+.stat span { font-size: 0.95rem; font-weight: 600; line-height: 1.35; display: block; }
+
+/* sections */
+section { padding-block: 3rem; scroll-margin-top: 1rem; }
+.sh { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 1.5rem; padding-block-end: 1rem; margin-block-end: 2rem; border-bottom: 4px solid var(--border); }
+.sh h2 { font-size: clamp(1.7rem, 4.6vw, 2.8rem); font-weight: 900; letter-spacing: -0.03em; }
+.sh p { color: var(--muted); max-width: 34rem; }
+
+/* stack tiles */
+.filters { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-block-end: 1.75rem; }
+.f { font: inherit; font-weight: 600; font-size: 0.95rem; padding: 0.35rem 0.9rem; background: var(--paper); color: var(--ink); border: 2px solid var(--border); cursor: pointer; transition: transform 0.12s, background 0.12s; }
+.f:hover { transform: translateY(-2px); background: var(--paper-hover); }
+.f[aria-pressed="true"] { background: var(--pop3); color: var(--on-pop3); box-shadow: 3px 3px 0 var(--shadow); }
+.tiles { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(6.6rem, 1fr)); gap: 1rem; }
+.tile { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; padding: 1rem 0.5rem 0.8rem; background: var(--paper); border: 3px solid var(--border); text-align: center; transition: transform 0.15s, box-shadow 0.15s, background 0.15s; }
+.tile:hover { transform: translate(-3px, -5px) rotate(-2deg); box-shadow: 6px 8px 0 var(--shadow); background: var(--paper-hover); }
+.tile:nth-child(even):hover { transform: translate(-3px, -5px) rotate(2deg); }
+.logo { display: grid; place-items: center; width: 3.4rem; height: 3.4rem; background: var(--c); color: var(--t, #fff); border: 3px solid var(--border); font-family: var(--font-display); font-weight: 900; font-size: 1rem; letter-spacing: -0.04em; transition: transform 0.2s; }
+.tile:hover .logo { transform: scale(1.18) rotate(8deg); }
+.tn { font-size: 0.85rem; font-weight: 600; line-height: 1.2; overflow-wrap: anywhere; }
+.now { margin-block-start: 2rem; padding: 1rem 1.25rem; background: var(--pop1); color: var(--on-pop); border: 3px solid var(--border); box-shadow: 5px 5px 0 var(--shadow); max-width: 40rem; font-weight: 500; }
+.now b { font-weight: 700; }
+
+/* projects */
+.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem; }
+@media (max-width: 46rem) { .projects { grid-template-columns: minmax(0, 1fr); } }
+.proj { position: relative; display: flex; flex-direction: column; background: var(--paper); border: 3px solid var(--border); box-shadow: 6px 6px 0 var(--shadow); transition: transform 0.15s, box-shadow 0.15s; min-width: 0; }
+.proj:hover { transform: translate(-4px, -4px); box-shadow: 11px 11px 0 var(--shadow); }
+.proj.wide { grid-column: 1 / -1; }
+.ph { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.25rem 1rem; padding: 0.6rem 1rem; border-bottom: 3px solid var(--border); font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600; color: var(--on-pop); }
+.proj:nth-child(5n+1) .ph { background: var(--pop1); }
+.proj:nth-child(5n+2) .ph { background: var(--pop2); }
+.proj:nth-child(5n+3) .ph { background: var(--pop4); }
+.proj:nth-child(5n+4) .ph { background: var(--pop3); color: var(--on-pop3); }
+.proj:nth-child(5n) .ph { background: var(--pop1); }
+.pb { display: flex; flex-direction: column; gap: 0.9rem; padding: 1.25rem; flex: 1; }
+.proj h3 { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; overflow-wrap: anywhere; }
+.proj h3 a { color: var(--ink); text-decoration: none; }
+.proj h3 a::after { content: ""; position: absolute; inset: 0; } /* whole card is the link */
+.proj:hover h3 a { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 0.2em; }
+.proj p { color: var(--muted); }
+.proj ul.pts { padding-inline-start: 1.1rem; display: grid; gap: 0.45rem; max-width: 48rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.4rem; list-style: none; padding: 0; margin-block-start: auto; }
+.chips li { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 600; padding: 0.15rem 0.5rem; border: 2px solid var(--border); background: var(--bg); }
+.go { font-weight: 700; font-size: 0.95rem; color: var(--link); }
+
+/* pipeline */
+.pipe { background: var(--paper); border: 3px solid var(--border); box-shadow: 6px 6px 0 var(--shadow); padding: 1.5rem; }
+.stages { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.stage { position: relative; padding-inline-end: 1rem; min-width: 0; }
+.stage::before, .stage::after { content: ""; position: absolute; top: 0.85rem; left: 1.6rem; right: 0; height: 4px; }
+.stage::before { background: var(--dot); }
+.stage::after { background: var(--pop3); transform-origin: left; animation: fill 0.7s ease-out backwards; animation-delay: calc(var(--i) * 0.7s + 0.5s); }
+.stage:last-child::before, .stage:last-child::after { display: none; }
+.dot { position: relative; z-index: 1; width: 1.7rem; height: 1.7rem; background: var(--pop3); border: 3px solid var(--border); animation: lit 0.3s ease-out backwards; animation-delay: calc(var(--i) * 0.7s + 0.4s); transition: transform 0.2s; }
+.stage:hover .dot { transform: rotate(45deg) scale(1.15); }
+.stage h3 { font-size: 1.05rem; font-weight: 700; margin-block: 0.9rem 0.3rem; }
+.stage p { font-size: 0.9rem; line-height: 1.45; color: var(--muted); }
+.stage code { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink); font-weight: 600; }
+@keyframes fill { from { transform: scaleX(0); } }
+@keyframes lit { from { background: var(--dot); } }
+@media (max-width: 40rem) {
+  .stages { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+  .stage { padding-inline-start: 2.6rem; padding-inline-end: 0; }
+  .stage .dot { position: absolute; left: 0; top: 0.1rem; }
+  .stage h3 { margin-block-start: 0; }
+  .stage::before, .stage::after { top: 1.8rem; bottom: -1.25rem; left: 0.8rem; right: auto; width: 4px; height: auto; }
+  .stage::after { transform-origin: top; }
+  @keyframes fill { from { transform: scaleY(0); } }
+}
+
+/* experience */
+.job { display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr); gap: 1.5rem; align-items: start; }
+.job time { display: inline-block; font-family: var(--font-mono); font-weight: 700; font-size: 0.9rem; background: var(--pop2); color: var(--on-pop); border: 3px solid var(--border); padding: 0.4rem 0.7rem; box-shadow: 4px 4px 0 var(--shadow); transform: rotate(-2deg); justify-self: start; }
+.jobcard { background: var(--paper); border: 3px solid var(--border); box-shadow: 6px 6px 0 var(--shadow); padding: 1.5rem; transition: transform 0.15s, box-shadow 0.15s; }
+.jobcard:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 var(--shadow); }
+.jobcard h3 { font-size: 1.35rem; font-weight: 700; }
+.jobcard .where { color: var(--muted); margin-block: 0.4rem 1rem; }
+.jobcard ul { padding-inline-start: 1.1rem; display: grid; gap: 0.5rem; max-width: 46rem; }
+@media (max-width: 46rem) { .job { grid-template-columns: minmax(0, 1fr); gap: 1rem; } }
+
+/* game */
+.play { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 26rem); gap: 2rem 3rem; align-items: start; }
+@media (max-width: 52rem) { .play { grid-template-columns: minmax(0, 1fr); } }
+.play .how { display: grid; gap: 1.25rem; align-content: start; }
+.play .how p { max-width: 30rem; }
+.legend { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; list-style: none; padding: 0; font-weight: 600; font-size: 0.95rem; }
+.legend li { display: flex; align-items: center; gap: 0.5rem; }
+.legend svg { width: 2rem; height: 2rem; flex: none; }
+.arcade { background: var(--pop3); border: 3px solid var(--border); box-shadow: 8px 8px 0 var(--shadow); padding: 1rem; }
+.hud { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.5rem; margin-block-end: 1rem; }
+.hud div { background: var(--paper); color: var(--ink); border: 2px solid var(--border); padding: 0.3rem 0.5rem; text-align: center; }
+.hud small { display: block; font-size: 0.7rem; color: var(--muted); font-weight: 600; }
+.hud output { display: block; font-family: var(--font-mono); font-weight: 700; font-size: 1.2rem; font-variant-numeric: tabular-nums; }
+.board { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem; }
+.hole { position: relative; aspect-ratio: 1; padding: 0; overflow: hidden; background: var(--paper); border: 3px solid var(--border); cursor: crosshair; font: inherit; transition: background 0.1s; }
+.hole:hover { background: var(--paper-hover); }
+.hole::after { content: ""; position: absolute; left: -6%; right: -6%; bottom: -22%; height: 46%; border-radius: 50%; background: var(--mound); border-top: 3px solid var(--border); z-index: 2; }
+.critter { position: absolute; inset: 8% 16% 18%; transform: translateY(115%); transition: transform 0.12s ease-out; z-index: 1; pointer-events: none; }
+.critter svg { width: 100%; height: 100%; display: block; }
+.hole.up .critter { transform: none; }
+.hole.hit { background: var(--pop4); }
+.hole.oops { background: var(--pop2); }
+.board.idle .hole { pointer-events: none; }
+.s-body { fill: var(--pop2); stroke: var(--border); stroke-width: 4; stroke-linejoin: round; }
+.s-line { fill: none; stroke: var(--border); stroke-width: 4; stroke-linecap: round; }
+.s-dot { fill: var(--border); }
+.s-ok { fill: var(--pop4); stroke: var(--border); stroke-width: 4; stroke-linejoin: round; }
+.s-tick { fill: none; stroke: var(--ink); stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+.ctrl { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1rem; margin-block-start: 1rem; color: var(--on-pop3); }
+.ctrl .btn { padding-block: 0.55rem; }
+.status { font-weight: 600; font-size: 0.95rem; min-height: 1.5em; flex: 1 1 10rem; }
+
+/* education */
+.trio { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: 1.75rem; }
+.box { background: var(--paper); border: 3px solid var(--border); box-shadow: 6px 6px 0 var(--shadow); padding: 1.5rem; transition: transform 0.15s, box-shadow 0.15s; min-width: 0; }
+.box:hover { transform: translate(-4px, -4px); box-shadow: 10px 10px 0 var(--shadow); }
+.box h3 { font-size: 1.15rem; font-weight: 700; margin-block-end: 0.8rem; }
+.box p, .box li { color: var(--muted); }
+.box ul { padding-inline-start: 1.1rem; display: grid; gap: 0.5rem; }
+.box strong { color: var(--ink); }
+
+/* contact */
+.contact { background: var(--pop3); color: var(--on-pop3); border: 3px solid var(--border); box-shadow: 8px 8px 0 var(--shadow); padding: clamp(1.5rem, 5vw, 3.5rem); }
+.contact h2 { font-size: clamp(2rem, 6.5vw, 4.5rem); font-weight: 900; letter-spacing: -0.04em; max-width: 13ch; }
+.mail { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1rem; margin-block: 1.75rem 1.25rem; }
+.mail code { font-family: var(--font-mono); font-weight: 600; font-size: 1.05rem; overflow-wrap: anywhere; background: var(--paper); color: var(--ink); border: 3px solid var(--border); padding: 0.45rem 0.8rem; user-select: all; }
+.links { display: flex; flex-wrap: wrap; gap: 1rem; }
+footer { padding-block-start: 2.5rem; color: var(--muted); font-size: 0.9rem; font-weight: 500; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .stage::after, .dot { animation: none; }
+  .critter { transition: none; }
+  * { transition-duration: 0.01ms !important; }
+}
+</style>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<div class="wrap">
+  <header class="bar">
+    <a class="mark" href="#top" aria-label="Back to top">KK</a>
+    <nav aria-label="Sections">
+      <a href="#stack">Stack</a>
+      <a href="#work">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#play">Game</a>
+      <a href="#contact">Contact</a>
+      <button class="theme" id="theme" type="button">Dark mode</button>
     </nav>
   </header>
 
-  <main id="home">
-    <!-- Hero -->
-    <section class="hero text-white" aria-labelledby="hero-heading">
-      <div class="container py-4 py-lg-5">
-        <div class="row align-items-center justify-content-center g-4 g-lg-5">
-          <div class="col-lg-7 text-center text-lg-start">
-            <p class="text-uppercase letter-space mb-2 opacity-75">Hello, I am</p>
-            <h1 id="hero-heading" class="display-4 fw-bold mb-3">Krushna Koshatwar</h1>
-            <p class="lead hero-lead mb-4 mx-auto mx-lg-0">I design and build responsive, accessible web experiences. Welcome to my portfolio.</p>
-            <div class="d-flex flex-wrap gap-2 justify-content-center justify-content-lg-start">
-              <a class="btn btn-primary btn-lg px-4" href="#projects">View work</a>
-              <a class="btn btn-outline-light btn-lg px-4" href="#contact">Get in touch</a>
-            </div>
-          </div>
-          <div class="col-lg-5 d-flex justify-content-center align-items-center">
-            <figure class="hero-figure mb-0">
-              <img src="utils/IMG_E0315.JPG"
-                class="img-fluid rounded-circle border border-4 border-light shadow hero-portrait" width="280" height="280"
-                alt="Krushna Koshatwar">
-              <figcaption class="visually-hidden">Krushna Koshatwar — portrait</figcaption>
-            </figure>
-          </div>
-        </div>
+  <main id="top">
+    <div class="hero">
+      <span class="pill">Pune, India · B.Tech IT 2027</span>
+      <h1 id="name" aria-label="Krushna Koshatwar"><span class="w">Krushna</span><span class="w">Koshatwar</span></h1>
+      <p class="lede">Full stack engineer. I build web apps with React and Node.js, keep the data in SQL or MongoDB, and ship them with Docker, GitHub Actions and AWS.</p>
+      <div class="cta">
+        <a class="btn" href="#work">See my projects</a>
+        <a class="btn alt" href="#contact">Get in touch</a>
+        <a class="btn blue" href="https://github.com/Oaklaan">GitHub</a>
       </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="py-5 section-surface" aria-labelledby="about-heading">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8 text-center mb-4">
-            <h2 id="about-heading" class="section-title">About me</h2>
-            <p class="text-muted">A short introduction using semantic HTML and structured content.</p>
-          </div>
-        </div>
-        <div class="row g-4">
-          <div class="col-md-6">
-            <article class="content-panel h-100">
-              <h3 class="h5 mb-3">Background</h3>
-              <p>I’m a passionate <strong>Backend & Full Stack Developer </strong>focused on building <strong>scalable, real-time applications</strong> and solving real-world problems through technology.</p>
-            </article>
-          </div>
-          <div class="col-md-6">
-            <article class="content-panel h-100">
-              <h3 class="h5 mb-3">Goals</h3>
-              <p>I enjoy turning ideas into fast, usable interfaces. I collaborate with teams, write thoughtful code,
-                and keep learning new tools and standards.</p>
-              <ul class="list-unstyled mb-0 mt-3">
-                <li class="mb-2"><span class="badge bg-primary me-2">HTML5</span> Semantic structure</li>
-                <li class="mb-2"><span class="badge bg-secondary me-2">CSS3</span> Layout &amp; theming</li>
-                <li><span class="badge bg-info text-dark me-2">JavaScript</span> Event driven &amp; UI</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills — Bootstrap progress + alerts as components -->
-    <section id="skills" class="py-5" aria-labelledby="skills-heading">
-      <div class="container">
-        <h2 id="skills-heading" class="section-title text-center mb-2">Skills</h2>
-        <p class="text-center text-muted mb-5">Proficiency indicators using Bootstrap progress bars.</p>
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-4">
-            <div class="card skill-card h-100 shadow-sm">
-              <div class="card-body">
-                <h3 class="card-title h5">Front-end</h3>
-                <p class="card-text small text-muted mb-3">HTML, CSS, JavaScript</p>
-                <p class="small text-muted mb-1 mb-0">HTML / semantics</p>
-                <div class="progress mb-3" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
-                  aria-label="HTML and semantics skill level">
-                  <div class="progress-bar bg-success" style="width: 90%">90%</div>
-                </div>
-                <p class="small text-muted mb-1 mb-0">CSS / layout</p>
-                <div class="progress mb-0" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
-                  aria-label="CSS and layout skill level">
-                  <div class="progress-bar" style="width: 85%">85%</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card skill-card h-100 shadow-sm">
-              <div class="card-body">
-                <h3 class="card-title h5">Frameworks</h3>
-                <p class="card-text small text-muted mb-3">Bootstrap, React basics</p>
-                <p class="small text-muted mb-1 mb-0">Bootstrap</p>
-                <div class="progress mb-3" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
-                  aria-label="Bootstrap skill level">
-                  <div class="progress-bar bg-info text-dark" style="width: 80%">80%</div>
-                </div>
-                <div class="alert alert-light border small mb-0 py-2" role="status">
-                  Responsive grids &amp; utilities speed up layout work.
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12 col-lg-4">
-            <div class="card skill-card h-100 shadow-sm">
-              <div class="card-body">
-                <h3 class="card-title h5">Tools</h3>
-                <p class="card-text small text-muted mb-3">Git, Figma, VS Code</p>
-                <div class="accordion accordion-flush" id="skillAccordion">
-                  <div class="accordion-item">
-                    <h4 class="accordion-header">
-                      <button class="accordion-button collapsed py-2" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#accOne" aria-expanded="false" aria-controls="accOne">Workflow</button>
-                    </h4>
-                    <div id="accOne" class="accordion-collapse collapse" data-bs-parent="#skillAccordion">
-                      <div class="accordion-body small py-2">Version control, code review, and component-based UI.</div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <h4 class="accordion-header">
-                      <button class="accordion-button collapsed py-2" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#accTwo" aria-expanded="false" aria-controls="accTwo">Design handoff</button>
-                    </h4>
-                    <div id="accTwo" class="accordion-collapse collapse" data-bs-parent="#skillAccordion">
-                      <div class="accordion-body small py-2">Specs, spacing tokens, and accessible color contrast.</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects — Bootstrap cards & modal -->
-    <section id="projects" class="py-5 section-surface" aria-labelledby="projects-heading">
-      <div class="container">
-        <h2 id="projects-heading" class="section-title text-center mb-2">Featured projects</h2>
-        <p class="text-center text-muted mb-5">Card layout with responsive columns.</p>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-          <div class="col">
-            <article class="card project-card h-100 shadow border-0">
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=340&fit=crop"
-                class="card-img-top" alt="Laptop on desk representing analytics dashboard project">
-              <div class="card-body d-flex flex-column">
-                <h3 class="card-title h5">Analytics dashboard</h3>
-                <p class="card-text text-muted small flex-grow-1">Charts, filters, and export using a component library.</p>
-                <button type="button" class="btn btn-outline-primary btn-sm align-self-start" data-bs-toggle="modal"
-                  data-bs-target="#modalProject1">Details</button>
-              </div>
-            </article>
-          </div>
-          <div class="col">
-            <article class="card project-card h-100 shadow border-0">
-              <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=340&fit=crop"
-                class="card-img-top" alt="Mobile app mockup on phone">
-              <div class="card-body d-flex flex-column">
-                <h3 class="card-title h5">Mobile-first storefront</h3>
-                <p class="card-text text-muted small flex-grow-1">Product grid, cart drawer, and checkout flow.</p>
-                <button type="button" class="btn btn-outline-primary btn-sm align-self-start" data-bs-toggle="modal"
-                  data-bs-target="#modalProject2">Details</button>
-              </div>
-            </article>
-          </div>
-          <div class="col">
-            <article class="card project-card h-100 shadow border-0">
-              <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=340&fit=crop"
-                class="card-img-top" alt="Code on screen representing API project">
-              <div class="card-body d-flex flex-column">
-                <h3 class="card-title h5">REST API toolkit</h3>
-                <p class="card-text text-muted small flex-grow-1">Documentation site and interactive console for developers.</p>
-                <button type="button" class="btn btn-outline-primary btn-sm align-self-start" data-bs-toggle="modal"
-                  data-bs-target="#modalProject3">Details</button>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Modals -->
-    <div class="modal fade" id="modalProject1" tabindex="-1" aria-labelledby="modalProject1Label" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2 class="modal-title h5" id="modalProject1Label">Analytics dashboard</h2>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <p class="mb-0">Role: UI engineering. Stack: HTML, CSS, JavaScript, charting library. Focus on accessibility and keyboard navigation.</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="modalProject2" tabindex="-1" aria-labelledby="modalProject2Label" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2 class="modal-title h5" id="modalProject2Label">Mobile-first storefront</h2>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <p class="mb-0">Role: Front-end. Implemented responsive product grid with Bootstrap and custom CSS for brand styling.</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="modalProject3" tabindex="-1" aria-labelledby="modalProject3Label" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2 class="modal-title h5" id="modalProject3Label">REST API toolkit</h2>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <p class="mb-0">Role: Full-stack. Built docs theme, try-it-out panel, and example responses for onboarding.</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
+      <a class="sticker" href="#play">Squash some bugs</a>
     </div>
 
-    <!-- Contact — Bootstrap form -->
-    <section id="contact" class="py-5" aria-labelledby="contact-heading">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <h2 id="contact-heading" class="section-title text-center mb-2">Contact</h2>
-            <p class="text-center text-muted mb-4">Send a message (demo form — does not submit to a server).</p>
-            <form class="contact-form needs-validation" novalidate>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label for="contactName" class="form-label">Name</label>
-                  <input type="text" class="form-control" id="contactName" required placeholder="Your name">
-                  <div class="invalid-feedback">Please enter your name.</div>
-                </div>
-                <div class="col-md-6">
-                  <label for="contactEmail" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="contactEmail" required placeholder="you@example.com">
-                  <div class="invalid-feedback">Please enter a valid email.</div>
-                </div>
-                <div class="col-12">
-                  <label for="contactMessage" class="form-label">Message</label>
-                  <textarea class="form-control" id="contactMessage" rows="4" required placeholder="Your message"></textarea>
-                  <div class="invalid-feedback">Please enter a message.</div>
-                </div>
-                <div class="col-12 text-center">
-                  <button type="submit" class="btn btn-primary px-5">Send</button>
-                </div>
-              </div>
-            </form>
+    <div class="stats">
+      <div class="stat"><b>40%</b><span>less UI development time with 15+ reusable React components</span></div>
+      <div class="stat"><b>30%</b><span>better data accuracy after cleaning 500+ data points</span></div>
+      <div class="stat"><b>25+</b><span>research papers analysed with Python, SQL and Excel</span></div>
+      <div class="stat"><b>135+</b><span>teams in Smart India Hackathon 2025, and I cleared 2 rounds</span></div>
+    </div>
+
+    <section id="stack">
+      <div class="sh"><h2>Tech stack</h2><p>Tools I have built with. Pick a group to filter.</p></div>
+      <div class="filters" role="group" aria-label="Filter tech stack">
+        <button class="f" type="button" data-f="all" aria-pressed="true">All</button>
+        <button class="f" type="button" data-f="frontend" aria-pressed="false">Frontend</button>
+        <button class="f" type="button" data-f="backend" aria-pressed="false">Backend</button>
+        <button class="f" type="button" data-f="data" aria-pressed="false">Databases</button>
+        <button class="f" type="button" data-f="cloud" aria-pressed="false">Cloud and DevOps</button>
+        <button class="f" type="button" data-f="test" aria-pressed="false">Testing</button>
+        <button class="f" type="button" data-f="ai" aria-pressed="false">AI</button>
+      </div>
+      <ul class="tiles" id="tiles">
+        <li class="tile" data-c="frontend"><span class="logo" style="--c:#61dafb;--t:#0c0d1a">Re</span><span class="tn">React</span></li>
+        <li class="tile" data-c="frontend"><span class="logo" style="--c:#000000">Nx</span><span class="tn">Next.js</span></li>
+        <li class="tile" data-c="frontend"><span class="logo" style="--c:#f7df1e;--t:#0c0d1a">JS</span><span class="tn">JavaScript</span></li>
+        <li class="tile" data-c="frontend"><span class="logo" style="--c:#3178c6">TS</span><span class="tn">TypeScript</span></li>
+        <li class="tile" data-c="frontend"><span class="logo" style="--c:#e34f26">H5</span><span class="tn">HTML5</span></li>
+        <li class="tile" data-c="frontend"><span class="logo" style="--c:#1572b6">C3</span><span class="tn">CSS3</span></li>
+        <li class="tile" data-c="frontend"><span class="logo" style="--c:#06b6d4;--t:#0c0d1a">Tw</span><span class="tn">Tailwind CSS</span></li>
+        <li class="tile" data-c="frontend"><span class="logo" style="--c:#f24e1e">Fi</span><span class="tn">Figma</span></li>
+        <li class="tile" data-c="backend"><span class="logo" style="--c:#5fa04e">No</span><span class="tn">Node.js</span></li>
+        <li class="tile" data-c="backend"><span class="logo" style="--c:#ffffff;--t:#0c0d1a">Ex</span><span class="tn">Express.js</span></li>
+        <li class="tile" data-c="backend"><span class="logo" style="--c:#3776ab">Py</span><span class="tn">Python</span></li>
+        <li class="tile" data-c="backend"><span class="logo" style="--c:#e76f00">Jv</span><span class="tn">Java</span></li>
+        <li class="tile" data-c="backend"><span class="logo" style="--c:#ffffff;--t:#0c0d1a">Fl</span><span class="tn">Flask</span></li>
+        <li class="tile" data-c="backend"><span class="logo" style="--c:#d63aff;--t:#0c0d1a">JWT</span><span class="tn">JWT and OAuth2</span></li>
+        <li class="tile" data-c="data"><span class="logo" style="--c:#336791">Pg</span><span class="tn">PostgreSQL</span></li>
+        <li class="tile" data-c="data"><span class="logo" style="--c:#00758f">My</span><span class="tn">MySQL</span></li>
+        <li class="tile" data-c="data"><span class="logo" style="--c:#47a248">Mo</span><span class="tn">MongoDB</span></li>
+        <li class="tile" data-c="data"><span class="logo" style="--c:#003b57">Sq</span><span class="tn">SQLite</span></li>
+        <li class="tile" data-c="data"><span class="logo" style="--c:#dc382d">Rd</span><span class="tn">Redis</span></li>
+        <li class="tile" data-c="cloud"><span class="logo" style="--c:#ff9900;--t:#0c0d1a;font-size:0.85rem">AWS</span><span class="tn">AWS EC2 and S3</span></li>
+        <li class="tile" data-c="cloud"><span class="logo" style="--c:#4285f4;font-size:0.85rem">GCP</span><span class="tn">Google Cloud</span></li>
+        <li class="tile" data-c="cloud"><span class="logo" style="--c:#2496ed">Dk</span><span class="tn">Docker</span></li>
+        <li class="tile" data-c="cloud"><span class="logo" style="--c:#326ce5">K8</span><span class="tn">Kubernetes</span></li>
+        <li class="tile" data-c="cloud"><span class="logo" style="--c:#f05032">Gt</span><span class="tn">Git and GitHub</span></li>
+        <li class="tile" data-c="cloud"><span class="logo" style="--c:#2088ff;--t:#0c0d1a">GA</span><span class="tn">GitHub Actions</span></li>
+        <li class="tile" data-c="cloud"><span class="logo" style="--c:#009639">Ng</span><span class="tn">Nginx</span></li>
+        <li class="tile" data-c="cloud"><span class="logo" style="--c:#f46800;--t:#0c0d1a">Gf</span><span class="tn">Grafana</span></li>
+        <li class="tile" data-c="test"><span class="logo" style="--c:#2ead33">Pw</span><span class="tn">Playwright</span></li>
+        <li class="tile" data-c="test"><span class="logo" style="--c:#0a9edc;--t:#0c0d1a">Pt</span><span class="tn">Pytest</span></li>
+        <li class="tile" data-c="ai"><span class="logo" style="--c:#d97757;--t:#0c0d1a">Cl</span><span class="tn">Claude API</span></li>
+        <li class="tile" data-c="ai"><span class="logo" style="--c:#10a37f">GPT</span><span class="tn">ChatGPT API</span></li>
+        <li class="tile" data-c="ai"><span class="logo" style="--c:#6e40c9">Cp</span><span class="tn">Copilot</span></li>
+        <li class="tile" data-c="ai"><span class="logo" style="--c:#f7df1e;--t:#0c0d1a">CC</span><span class="tn">Claude Code</span></li>
+      </ul>
+      <p class="now"><b>Right now</b> I am learning Docker, Kubernetes, cloud computing and CI/CD, and strengthening data structures and system design.</p>
+    </section>
+
+    <section id="work">
+      <div class="sh"><h2>Projects</h2><p>Click a card to open the code on GitHub.</p></div>
+      <div class="projects">
+        <article class="proj wide">
+          <div class="ph"><span>Smart India Hackathon 2025</span><span>Aug to Oct 2025 · Team of 6</span></div>
+          <div class="pb">
+            <h3>Waste Segregation System</h3>
+            <p>I was the frontend lead. The app serves four kinds of users, each with their own screens.</p>
+            <ul class="pts">
+              <li>Built the React dashboard from 15+ reusable components, cutting development time by about 40%.</li>
+              <li>Made 4 role-based interfaces for Admin, Collector, Recycler and End User with their own workflows.</li>
+              <li>Designed the sidebar, cards and insights panel so common tasks take about 25% fewer clicks.</li>
+              <li>Selected among the top submissions at the Bharati Vidyapeeth College of Engineering round.</li>
+            </ul>
+            <ul class="chips"><li>React</li><li>Role-based UI</li><li>Dashboard design</li></ul>
           </div>
+        </article>
+
+        <article class="proj">
+          <div class="ph"><span>Python</span><span>Testing</span></div>
+          <div class="pb">
+            <h3><a href="https://github.com/Oaklaan/QA-Automation-Challenge">QA-Automation-Challenge</a></h3>
+            <p>Scalable API, UI and mobile test automation, run through CI/CD.</p>
+            <ul class="chips"><li>Pytest</li><li>Playwright</li><li>BrowserStack</li><li>CI/CD</li></ul>
+            <span class="go">Open on GitHub</span>
+          </div>
+        </article>
+
+        <article class="proj">
+          <div class="ph"><span>HTML</span><span>DevOps</span></div>
+          <div class="pb">
+            <h3><a href="https://github.com/Oaklaan/GITHUB_ACTIONS">GITHUB_ACTIONS</a></h3>
+            <p>Automated deployment: every push builds on a self-hosted runner and goes live on AWS EC2 behind Nginx.</p>
+            <ul class="chips"><li>GitHub Actions</li><li>AWS EC2</li><li>Nginx</li></ul>
+            <span class="go">Open on GitHub</span>
+          </div>
+        </article>
+
+        <article class="proj">
+          <div class="ph"><span>HTML, Python</span><span>Machine learning</span></div>
+          <div class="pb">
+            <h3><a href="https://github.com/Oaklaan/spam-detection-app">spam-detection-app</a></h3>
+            <p>A web app that classifies messages as spam or not, with a responsive interface. Deployed on Railway.</p>
+            <ul class="chips"><li>Python</li><li>Flask</li><li>JavaScript</li><li>Railway</li></ul>
+            <span class="go">Open on GitHub</span>
+          </div>
+        </article>
+
+        <article class="proj">
+          <div class="ph"><span>HTML</span><span>Maps</span></div>
+          <div class="pb">
+            <h3><a href="https://github.com/Oaklaan/d-mart-hub">d-mart-hub</a></h3>
+            <p>A responsive D-Mart store finder that uses your location and Google Maps to show nearby stores.</p>
+            <ul class="chips"><li>Geolocation API</li><li>Google Maps</li><li>JavaScript</li></ul>
+            <span class="go">Open on GitHub</span>
+          </div>
+        </article>
+
+        <article class="proj wide">
+          <div class="ph"><span>JavaScript</span><span>Learning log</span></div>
+          <div class="pb">
+            <h3><a href="https://github.com/Oaklaan/JAVASCRIPT">JAVASCRIPT</a></h3>
+            <p>My path from JavaScript fundamentals to the DOM, events, ES6+, OOP, prototypes and browser APIs, with small projects along the way.</p>
+            <ul class="chips"><li>DOM</li><li>ES6+</li><li>OOP</li><li>Browser APIs</li></ul>
+            <span class="go">Open on GitHub</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="ship">
+      <div class="sh"><h2>How I ship</h2><p>The path my code takes, from the GITHUB_ACTIONS and QA-Automation-Challenge repos.</p></div>
+      <div class="pipe">
+        <ol class="stages">
+          <li class="stage" style="--i:0"><div class="dot"></div><h3>Push</h3><p>Code goes to GitHub. React, Node.js, Express, MongoDB or SQL.</p></li>
+          <li class="stage" style="--i:1"><div class="dot"></div><h3>Test</h3><p>API, UI and mobile checks with <code>Pytest</code>, <code>Playwright</code> and BrowserStack.</p></li>
+          <li class="stage" style="--i:2"><div class="dot"></div><h3>Build</h3><p>GitHub Actions builds on a self-hosted runner. Docker for packaging.</p></li>
+          <li class="stage" style="--i:3"><div class="dot"></div><h3>Deploy</h3><p>Live on AWS EC2 behind <code>Nginx</code>.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="sh"><h2>Experience</h2></div>
+      <div class="job">
+        <time>Jan to Mar 2026</time>
+        <div class="jobcard">
+          <h3>Data Analyst Intern</h3>
+          <p class="where">Brandessence Market Research Pvt Ltd, Hadapsar, Pune</p>
+          <ul>
+            <li>Worked with the CEO and managing directors on 10+ data-driven business and research projects in an Agile team.</li>
+            <li>Analysed 25+ research papers using Python, SQL and Excel to find market insights.</li>
+            <li>Cleaned and processed primary and secondary datasets of 500+ data points, improving data accuracy by 30%.</li>
+            <li>Wrote 15+ business analysis reports for client-facing stakeholders.</li>
+            <li>Met clients directly across 5+ engagements and turned research findings into recommendations.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="play">
+      <div class="sh"><h2>Squash the bugs</h2><p>A 30 second break. Click, tap or press keys 1 to 9.</p></div>
+      <div class="play">
+        <div class="how">
+          <p>Bugs pop out of the holes and run away if you are slow. Squash as many as you can before the clock runs out. They get faster as the round goes on.</p>
+          <ul class="legend">
+            <li>
+              <svg viewBox="0 0 100 100" aria-hidden="true"><ellipse class="s-body" cx="50" cy="60" rx="24" ry="30"/><circle class="s-body" cx="50" cy="26" r="13"/><path class="s-line" d="M44 14 L36 4 M56 14 L64 4 M26 52 L10 46 M74 52 L90 46 M27 68 L10 74 M73 68 L90 74"/></svg>
+              Bug: +1
+            </li>
+            <li>
+              <svg viewBox="0 0 100 100" aria-hidden="true"><rect class="s-ok" x="12" y="12" width="76" height="76" rx="14"/><path class="s-tick" d="M30 52 L45 67 L72 35"/></svg>
+              Feature: leave it alone, -2
+            </li>
+          </ul>
+        </div>
+        <div class="arcade">
+          <div class="hud">
+            <div><small>Squashed</small><output id="score">0</output></div>
+            <div><small>Time</small><output id="time">30</output></div>
+            <div><small>Escaped</small><output id="esc">0</output></div>
+            <div><small>Best</small><output id="best">0</output></div>
+          </div>
+          <div class="board idle" id="board" aria-label="Game board, 9 holes"></div>
+          <div class="ctrl">
+            <button class="btn" id="start" type="button">Start game</button>
+            <span class="status" id="status" role="status" aria-live="polite">Press start. Keys 1 to 9 hit the holes in reading order.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="sh"><h2>Education and more</h2></div>
+      <div class="trio">
+        <div class="box">
+          <h3>Education</h3>
+          <p><strong>B.Tech in Information Technology</strong><br>Bharati Vidyapeeth College of Engineering, Pune<br>July 2023 to July 2027 · CGPA 7.7</p>
+        </div>
+        <div class="box">
+          <h3>Certifications</h3>
+          <ul>
+            <li>Oracle Cloud Infrastructure AI Foundations Associate</li>
+            <li>Oracle Generative AI Professional</li>
+            <li>Google Cloud Computing Foundations and Introduction to IoT (NPTEL)</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>Beyond code</h3>
+          <ul>
+            <li>Library Head, 2025 to 2026</li>
+            <li>Active in 3+ college clubs and technical communities, helping plan and run events</li>
+            <li>Workshops and MOOCs on cloud computing and emerging technologies</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact-wrap">
+      <div class="contact" id="contact">
+        <h2>Let's build something.</h2>
+        <div class="mail">
+          <code id="email">krushnakoshatwar619@gmail.com</code>
+          <button class="btn" id="copy" type="button">Copy email</button>
+        </div>
+        <div class="links">
+          <a class="btn alt" href="https://github.com/Oaklaan">GitHub</a>
+          <a class="btn alt" href="https://www.linkedin.com/in/krushna-koshatwar-65966b284/">LinkedIn</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="bg-dark text-white-50 py-4 mt-auto">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
-          <p class="mb-0 small">&copy; <span id="year"></span> Krushna Koshatwar. Built for coursework demo.</p>
-        </div>
-        <div class="col-md-6 text-center text-md-end">
-          <a href="https://github.com/Oaklaan" class="text-white-50 text-decoration-none me-3"><strong>GitHub</strong></a>
-          <a href="https://www.linkedin.com/in/krushna-koshatwar-65966b284/" class="text-white-50 text-decoration-none me-3"><strong>LinkedIn</strong></a>
-          <a href="https://mail.google.com/mail/u/1/?view=cm&fs=1&to=krushnakoshatwar619@gmail.com&tf=1" class="text-white-50 text-decoration-none"><strong>Email</strong></a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <footer>Krushna Koshatwar · Pune, India</footer>
+</div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    (function () {
-      'use strict';
-      var forms = document.querySelectorAll('.needs-validation');
-      Array.prototype.slice.call(forms).forEach(function (form) {
-        form.addEventListener('submit', function (event) {
-          if (!form.checkValidity()) {
-            event.preventDefault();
-            event.stopPropagation();
-          } else {
-            event.preventDefault();
-            alert('Thanks! KK will get back to you');
-          }
-          form.classList.add('was-validated');
-        }, false);
-      });
-    })();
-  </script>
-</body>
-</html>
+<script>
+(function () {
+  var root = document.documentElement;
 
+  /* split the name into letters so each one reacts to hover */
+  var words = document.querySelectorAll("#name .w");
+  for (var i = 0; i < words.length; i++) {
+    var txt = words[i].textContent;
+    words[i].textContent = "";
+    for (var j = 0; j < txt.length; j++) {
+      var s = document.createElement("span");
+      s.className = "l"; s.setAttribute("aria-hidden", "true"); s.textContent = txt.charAt(j);
+      words[i].appendChild(s);
+    }
+  }
 
-/*END */
+  /* theme toggle */
+  var themeBtn = document.getElementById("theme");
+  function isDark() {
+    var t = root.getAttribute("data-theme");
+    if (t) return t === "dark";
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  function label() { themeBtn.textContent = isDark() ? "Light mode" : "Dark mode"; }
+  themeBtn.addEventListener("click", function () {
+    root.setAttribute("data-theme", isDark() ? "light" : "dark");
+    label();
+  });
+  label();
 
+  /* tech stack filter */
+  var fbtns = document.querySelectorAll(".f");
+  var tiles = document.querySelectorAll("#tiles .tile");
+  for (var a = 0; a < fbtns.length; a++) {
+    fbtns[a].addEventListener("click", function () {
+      var f = this.getAttribute("data-f");
+      for (var b = 0; b < fbtns.length; b++) fbtns[b].setAttribute("aria-pressed", fbtns[b] === this ? "true" : "false");
+      for (var c = 0; c < tiles.length; c++) tiles[c].hidden = !(f === "all" || tiles[c].getAttribute("data-c") === f);
+    });
+  }
+
+  /* scroll progress */
+  var bar = document.getElementById("progress");
+  function prog() {
+    var h = root.scrollHeight - window.innerHeight;
+    bar.style.transform = "scaleX(" + (h > 0 ? Math.min(1, window.scrollY / h) : 0) + ")";
+  }
+  window.addEventListener("scroll", prog, { passive: true });
+  prog();
+
+  /* copy email */
+  var copyBtn = document.getElementById("copy");
+  var mail = document.getElementById("email");
+  function selectMail() {
+    var r = document.createRange(); r.selectNodeContents(mail);
+    var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+  }
+  copyBtn.addEventListener("click", function () {
+    var done = function () { copyBtn.textContent = "Copied"; setTimeout(function () { copyBtn.textContent = "Copy email"; }, 2000); };
+    try { navigator.clipboard.writeText(mail.textContent).then(done, selectMail); } catch (e) { selectMail(); }
+  });
+
+  /* ---------- bug game ---------- */
+  var BUG = '<svg viewBox="0 0 100 100" aria-hidden="true"><path class="s-line" d="M44 14 L36 4 M56 14 L64 4 M26 52 L10 46 M74 52 L90 46 M27 68 L10 74 M73 68 L90 74"/><ellipse class="s-body" cx="50" cy="60" rx="24" ry="30"/><circle class="s-body" cx="50" cy="26" r="13"/><path class="s-line" d="M50 40 L50 88"/><circle class="s-dot" cx="45" cy="24" r="3"/><circle class="s-dot" cx="55" cy="24" r="3"/></svg>';
+  var FEAT = '<svg viewBox="0 0 100 100" aria-hidden="true"><rect class="s-ok" x="12" y="12" width="76" height="76" rx="14"/><path class="s-tick" d="M30 52 L45 67 L72 35"/></svg>';
+  var DURATION = 30, N = 9;
+  var board = document.getElementById("board");
+  var elScore = document.getElementById("score"), elTime = document.getElementById("time"),
+      elEsc = document.getElementById("esc"), elBest = document.getElementById("best"),
+      startBtn = document.getElementById("start"), status = document.getElementById("status");
+  var cells = [], slots = [], running = false, score = 0, esc = 0, startAt = 0, tickId = null, spawnId = null, best = 0;
+
+  try { best = parseInt(localStorage.getItem("kk-bug-best"), 10) || 0; } catch (e) { best = 0; }
+  elBest.textContent = best;
+
+  function mk(i) {
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "hole"; b.setAttribute("aria-label", "Hole " + (i + 1));
+    var c = document.createElement("span"); c.className = "critter";
+    b.appendChild(c);
+    b.addEventListener("click", function () { hit(i); });
+    board.appendChild(b);
+    cells.push(b); slots.push(null);
+  }
+  for (var k = 0; k < N; k++) mk(k);
+
+  function flash(i, cls) {
+    cells[i].classList.add(cls);
+    setTimeout(function () { cells[i].classList.remove(cls); }, 220);
+  }
+  function show(i, type) {
+    cells[i].firstChild.innerHTML = type === "bug" ? BUG : FEAT;
+    cells[i].classList.add("up");
+    slots[i] = { type: type, t: null };
+  }
+  function hide(i) {
+    if (slots[i] && slots[i].t) clearTimeout(slots[i].t);
+    slots[i] = null;
+    cells[i].classList.remove("up");
+  }
+  function elapsed() { return (Date.now() - startAt) / 1000; }
+
+  function hit(i) {
+    if (!running || !slots[i]) return;
+    var type = slots[i].type;
+    hide(i);
+    if (type === "bug") { score++; flash(i, "hit"); }
+    else { score = Math.max(0, score - 2); flash(i, "oops"); }
+    elScore.textContent = score;
+  }
+  function expire(i) {
+    if (!slots[i]) return;
+    if (slots[i].type === "bug") { esc++; elEsc.textContent = esc; }
+    hide(i);
+  }
+  function spawn() {
+    if (!running) return;
+    var free = [];
+    for (var i = 0; i < N; i++) if (!slots[i]) free.push(i);
+    var e = elapsed();
+    if (free.length) {
+      var pick = free[Math.floor(Math.random() * free.length)];
+      var type = (e > 4 && Math.random() < 0.2) ? "feature" : "bug";
+      show(pick, type);
+      var life = Math.max(650, 1250 - e * 20);
+      slots[pick].t = setTimeout(function () { expire(pick); }, life);
+    }
+    spawnId = setTimeout(spawn, Math.max(380, 820 - e * 14));
+  }
+  function tick() {
+    var left = Math.max(0, DURATION - elapsed());
+    elTime.textContent = Math.ceil(left);
+    if (left <= 0) end();
+  }
+  function begin() {
+    for (var i = 0; i < N; i++) hide(i);
+    score = 0; esc = 0; running = true; startAt = Date.now();
+    elScore.textContent = 0; elEsc.textContent = 0; elTime.textContent = DURATION;
+    board.classList.remove("idle");
+    startBtn.textContent = "Restart";
+    status.textContent = "Go!";
+    tickId = setInterval(tick, 100);
+    spawnId = setTimeout(spawn, 400);
+  }
+  function end() {
+    running = false;
+    clearInterval(tickId); clearTimeout(spawnId);
+    for (var i = 0; i < N; i++) hide(i);
+    board.classList.add("idle");
+    var msg = score >= 18 ? "Clean release. Bugs never stood a chance." : score >= 8 ? "Solid run. The build is green." : "Warm-up round. Try again.";
+    if (score > best) {
+      best = score; elBest.textContent = best;
+      try { localStorage.setItem("kk-bug-best", String(best)); } catch (e) {}
+      msg = "New best: " + score + ". " + msg;
+    }
+    status.textContent = score + " squashed, " + esc + " escaped. " + msg;
+    startBtn.textContent = "Play again";
+  }
+  startBtn.addEventListener("click", function () {
+    if (running) { clearInterval(tickId); clearTimeout(spawnId); }
+    begin();
+  });
+  document.addEventListener("keydown", function (ev) {
+    if (!running || ev.ctrlKey || ev.metaKey || ev.altKey) return;
+    if (ev.key >= "1" && ev.key <= "9") { hit(parseInt(ev.key, 10) - 1); }
+  });
+
+  /* resting state: one bug waiting in the middle hole */
+  show(4, "bug");
+})();
+</script>
+
+</body></html>
